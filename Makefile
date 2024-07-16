@@ -1,28 +1,29 @@
 install:
-    poetry install
+	poetry install
 
 gendiff:
-    poetry run gendiff
+	poetry run gendiff
 
 build:
-    poetry build
+	poetry build
 
 publish:
-    poetry publish --dry-run
+	poetry publish --dry-run
 
 package-reinstall:
-     python3 -m pip install  --force-reinstall dist/*.whl
+	python3 -m pip install  --force-reinstall dist/*.whl
 
 package-install:
-    python3 -m pip install --user dist/*.whl
+	python3 -m pip install --user dist/*.whl
 
 lint:
-    poetry run flake8
+	poetry run flake8 gendiff
 
 pytest:
-    poetry run  pytest
+	poetry run pytest
 
 test-coverage:
-    poetry run pytest --cov=gendiff --cov-report xml
+	poetry run pytest --cov=gendiff --cov-report xml
 
-check: lint pytest
+check:
+	lint pytest
